@@ -43,4 +43,20 @@ minikube dashboard
 ```
 
 
+## Access ChartMuseum
+
+```
+kubectl port-forward svc/chart-museum-argo-application-chartmuseum 8150:8080 -n chartmuseum
+```
+
+
+docker run --rm -it \
+-p 8150:8080 \
+-e DEBUG=1 \
+-e STORAGE=local \
+-e STORAGE_LOCAL_ROOTDIR=/charts \
+-v $(pwd)/charts:/charts \
+ghcr.io/helm/chartmuseum:v0.14.0
+
+
 

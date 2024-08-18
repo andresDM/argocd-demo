@@ -1,21 +1,22 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: chart-museum-argo-application
-  namespace: argocd
-spec:
-    project: default
-    source:
-        chart: chartmuseum
-        repoURL: https://chartmuseum.github.io/charts
-        targetRevision: 2.15.0
-    destination:
-        server: 'https://kubernetes.default.svc'
-        namespace: chartmuseum
-    syncPolicy:
-      syncOptions:
-        - CreateNamespace=true
-
-      automated:
-        selfHeal: true
-        prune: true
+# Used local docker image as specified in README.md due to errors when posting new charts.
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
+#metadata:
+#  name: chart-museum-argo-application
+#  namespace: argocd
+#spec:
+#    project: default
+#    source:
+#        chart: chartmuseum
+#        repoURL: https://chartmuseum.github.io/charts
+#        targetRevision: 2.15.0
+#    destination:
+#        server: 'https://kubernetes.default.svc'
+#        namespace: chartmuseum
+#    syncPolicy:
+#      syncOptions:
+#        - CreateNamespace=true
+#
+#      automated:
+#        selfHeal: true
+#        prune: true
